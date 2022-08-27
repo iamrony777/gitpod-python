@@ -8,6 +8,8 @@ extensions = {
     "ms-python": ["pylint", "python", "vscode-pylance"],
     "WakaTime": "vscode-wakatime",
     "GitHub": "github-vscode-theme",
+    "foxundermoon": "shell-format",
+    "donjayamanne": "githistory
 }
 
 

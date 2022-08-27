@@ -9,7 +9,7 @@ extensions = {
     "WakaTime": "vscode-wakatime",
     "GitHub": "github-vscode-theme",
     "foxundermoon": "shell-format",
-    "donjayamanne": "githistory
+    "donjayamanne": "githistory"
 }
 
 

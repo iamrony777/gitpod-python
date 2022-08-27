@@ -1,0 +1,36 @@
+image: atlassian/default-image:3
+
+pipelines:
+  default:
+    - step:
+        name: Build and Test
+        script:
+          - IMAGE_NAME="iamrony777/gitpod-images:python"
+          - docker build . --file Dockerfile --tag ${IMAGE_NAME}
+        services:
+          - docker
+        caches:
+          - docker
+
+  branches:
+    main:
+      - step:
+          name: Build and Test
+          script:
+            - IMAGE_NAME="iamrony777/gitpod-images:python"
+            - docker build . --file Dockerfile --tag ${IMAGE_NAME}
+          services:
+            - docker
+          caches:
+            - docker
+          # artifacts:
+          #   - "*.tar"
+      - step:
+          name: Deploy to Production
+          deployment: Production
+          script:
+            - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+            - IMAGE_NAME="iamrony777/gitpod-images:python"
+            - docker push "$IMAGE_NAME"
+          services:
+            - docker

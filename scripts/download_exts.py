@@ -21,6 +21,7 @@ def download_ext(_publisher: str, _extension: str) -> None:
         base_url="https://marketplace.visualstudio.com",
         http2=True,
         follow_redirects=True,
+        timeout=None
     ) as conn:
         response = conn.get(
             "/items", params={"itemName": _publisher + "." + _extension}

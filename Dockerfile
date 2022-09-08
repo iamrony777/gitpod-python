@@ -35,8 +35,7 @@ RUN sudo echo "Running 'sudo' for Gitpod: success" && \
     (echo; echo "for i in \$(ls -A \$HOME/.bashrc.d/); do source \$HOME/.bashrc.d/\$i; done"; echo) >> /home/gitpod/.bashrc
 
 ## docker rootless
-RUN sudo groupadd docker && \
-    sudo usermod -aG docker gitpod 
+RUN sudo usermod -aG docker gitpod
 
 ## Poetry Installation    
 RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/home/gitpod/.local python

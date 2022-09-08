@@ -29,8 +29,9 @@ pipelines:
           name: Deploy to Production
           deployment: Production
           script:
-            - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
+            - docker login --username "${DOCKER_USERNAME}" --password "${DOCKER_PASSWORD}"
             - IMAGE_NAME="iamrony777/gitpod-images:python"
             - docker push "$IMAGE_NAME"
+            - docker logout
           services:
             - docker

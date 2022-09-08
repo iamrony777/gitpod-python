@@ -1,11 +1,21 @@
 FROM python:bullseye
 
 ## RUNTIME Deps
-ENV COMMON_DEPS='ca-certificates bash-completion curl git wget lsb-release htop unzip tar jq sudo gcc vim build-essential'
+ENV COMMON_DEPS='ca-certificates bash-completion curl git wget lsb-release gnupg htop unzip tar jq sudo gcc vim build-essential'
 ENV PIP_USER=false
 RUN apt update -y && apt upgrade -y && \
     apt install -y $COMMON_DEPS
-    
+
+## Docker update
+ARG DEBIAN_FRONTEND=noninteractive
+RUN sudo mkdir -p /etc/apt/keyrings && \
+    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg && \
+    echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null && \
+    apt update && \
+    apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+
 ## Gitpod user ##
 # '-l': see https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
 RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod \
@@ -23,7 +33,10 @@ RUN sudo echo "Running 'sudo' for Gitpod: success" && \
     # create .bashrc.d folder and source it in the bashrc
     mkdir -p /home/gitpod/.bashrc.d && \
     (echo; echo "for i in \$(ls -A \$HOME/.bashrc.d/); do source \$HOME/.bashrc.d/\$i; done"; echo) >> /home/gitpod/.bashrc
-    
+
+## docker rootless
+RUN sudo groupadd docker && \
+    sudo usermod -aG docker gitpod 
 
 ## Poetry Installation    
 RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/home/gitpod/.local python

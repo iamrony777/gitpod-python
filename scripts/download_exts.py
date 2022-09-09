@@ -7,7 +7,6 @@ from lxml import html
 extensions = {
     "ms-python": ["pylint", "python", "vscode-pylance"],
     "ms-azuretools": "vscode-docker",
-    "VisualStudioExptTeam": "vscodeintellicode", 
     "WakaTime": "vscode-wakatime",
     "GitHub": "github-vscode-theme",
     "foxundermoon": "shell-format",

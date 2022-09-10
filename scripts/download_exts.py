@@ -9,7 +9,7 @@ extensions = {
     "ms-azuretools": "vscode-docker",
     "WakaTime": "vscode-wakatime",
     "GitHub": "github-vscode-theme",
-    "foxundermoon": "shell-format",
+    "timonwong": "shellcheck",
     "donjayamanne": "githistory"
 }
 

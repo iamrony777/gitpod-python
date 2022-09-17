@@ -1,0 +1,15 @@
+{
+    "ms-python": [
+        "pylint",
+        "python",
+        "vscode-pylance"
+    ],
+    "ms-toolsai": "jupyter",
+    "ms-azuretools": "vscode-docker",
+    "WakaTime": "vscode-wakatime",
+    "GitHub": "github-vscode-theme",
+    "timonwong": "shellcheck",
+    "donjayamanne": "githistory",
+    "alefragnani": "project-manager",
+    "mangeshrex": "Everblush"
+}

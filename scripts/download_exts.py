@@ -4,15 +4,8 @@ from json import loads
 from httpx import Client
 from lxml import html
 
-extensions = {
-    "ms-python": ["pylint", "python", "vscode-pylance"],
-    "ms-azuretools": "vscode-docker",
-    "WakaTime": "vscode-wakatime",
-    "GitHub": "github-vscode-theme",
-    "timonwong": "shellcheck",
-    "donjayamanne": "githistory"
-}
-
+with open("scripts/exts", encoding="utf-8") as __intput:
+    extensions = loads(__intput.read())
 
 def download_ext(_publisher: str, _extension: str) -> None:
     """Download extensions"""

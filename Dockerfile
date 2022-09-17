@@ -51,7 +51,7 @@ COPY scripts/exts scripts/exts
 RUN mkdir -p $HOME/extensions && \
     python scripts/download_exts.py && \ 
     pip uninstall -y httpx[http2] lxml && \
-    rm -rf scripts
+    sudo rm -rf scripts
 
 CMD [ "bash" ]
 

@@ -46,11 +46,12 @@ RUN id && \
     poetry --version && \
     pip --version
 
-COPY scripts/download_exts.py download_exts.py
+COPY scripts/download_exts.py scripts/download_exts.py
+COPY scripts/exts scripts/exts
 RUN mkdir -p $HOME/extensions && \
-    python download_exts.py && \ 
+    python scripts/download_exts.py && \ 
     pip uninstall -y httpx[http2] lxml && \
-    rm -rf download_exts.py
+    rm -rf scripts
 
 CMD [ "bash" ]
 

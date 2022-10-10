@@ -1,15 +1,27 @@
 {
-    "ms-python": [
-        "pylint",
-        "python",
-        "vscode-pylance"
-    ],
-    "ms-toolsai": "jupyter",
-    "ms-azuretools": "vscode-docker",
-    "WakaTime": "vscode-wakatime",
-    "GitHub": "github-vscode-theme",
-    "timonwong": "shellcheck",
-    "donjayamanne": "githistory",
-    "alefragnani": "project-manager",
-    "mangeshrex": "Everblush"
+  "alefragnani": "project-manager",
+  "dbaeumer": "vscode-eslint",
+  "donjayamanne": "githistory",
+  "formulahendry": "code-runner",
+  "GitHub": "github-vscode-theme",
+  "mangeshrex": "Everblush",
+  "monokai": "theme-monokai-pro-vscode",
+  "ms-azuretools": "vscode-docker",
+  "ms-python": [
+    "pylint",
+    "python",
+    "vscode-pylance"
+  ],
+  "ms-toolsai": [
+    "jupyter",
+    "jupyter-keymap",
+    "jupyter-renderers"
+  ],
+  "redhat": [
+    "vscode-xml",
+    "vscode-yaml"
+  ],
+  "timonwong": "shellcheck",
+  "vscode-icons-team": "vscode-icons",
+  "WakaTime": "vscode-wakatime"
 }

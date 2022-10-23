@@ -1,2 +1,4 @@
 .venv
 scripts/gen_exts.py
+*.vsix
+scripts/local_download_exts.py
